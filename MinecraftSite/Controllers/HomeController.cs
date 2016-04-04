@@ -15,7 +15,7 @@ namespace MinecraftSite.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Minecraft...";
+            ViewBag.Message = "site";
 
             return View();
         }
