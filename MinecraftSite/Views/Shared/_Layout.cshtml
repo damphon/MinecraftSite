@@ -20,10 +20,13 @@
                 @Html.ActionLink("Pazuzu Minecraft", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                <!--need navbar active status-->
+                <ul class="nav navbar-nav">3
+                    <li>@Html.ActionLink("Map", "Map", "Home")</li>
+                    <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+                    <li>@Html.ActionLink("Connect", "Connect", "Home")</li>
+                    <li>@Html.ActionLink("Portal", "Portal", "Home")</li>
+                    <li>@Html.ActionLink("External", "External", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

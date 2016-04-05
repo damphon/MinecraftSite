@@ -13,17 +13,23 @@ namespace MinecraftSite.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Map()
         {
-            ViewBag.Message = "site";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Gallery()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult Connect()
+        {
+            return View();
+        }
+
+        public ActionResult External()
+        {
             return View();
         }
     }
