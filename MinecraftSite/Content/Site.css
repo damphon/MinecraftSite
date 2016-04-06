@@ -25,7 +25,8 @@ textarea {
 
 @font-face {
 	font-family:minecrafter;
-	src:/fonts/Minecrafter;
+	src:url(../fonts/Minecrafter.ttf); /*if IE */
+    src: local("minecrafter"), url("../fonts/Minecrafter.ttf") format("truetype"); /* non-IE */
 }
 
 .navbar-brand {
