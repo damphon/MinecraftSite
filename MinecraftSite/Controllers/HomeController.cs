@@ -33,7 +33,7 @@ namespace MinecraftSite.Controllers
             return View();
         }
 
-        public ActionResult Portal()
+        public ActionResult Portals()
         {
             return View();
         }
