@@ -18,6 +18,7 @@
 }
 .es-carousel ul{
 	display:none;
+    margin-left:-30px;
 }
 .es-carousel ul li{
 	height:100%;
@@ -51,7 +52,7 @@
 	position:absolute;
 	top:50%;
 	left:8px;
-	background:transparent url(../images/nav_thumbs.png) no-repeat top left;
+	background:transparent url(../GalleryImages/nav_thumbs.png) no-repeat top left;
 	width:14px;
 	height:26px;
 	margin-top:-13px;
