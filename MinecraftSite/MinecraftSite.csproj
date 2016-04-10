@@ -173,7 +173,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\MojangLogin.cs" />
+    <Compile Include="Helpers\GalleryUpload.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -301,7 +301,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Connect.cshtml" />
     <Content Include="Views\Home\Map.cshtml" />
-    <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\External.cshtml" />
     <Content Include="Views\Home\Portals.cshtml" />
   </ItemGroup>

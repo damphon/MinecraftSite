@@ -8,7 +8,7 @@ using System.Web;
 
 namespace MinecraftSite.Helpers
 {
-    public class MojangLogin
+    public class GalleryUpload
     {/*
         public enum LoginResult { OtherError, ServiceUnavailable, SSLError, Success, WrongPassword, AccountMigrated, NotPremium };
 

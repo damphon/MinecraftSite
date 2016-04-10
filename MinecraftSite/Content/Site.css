@@ -35,12 +35,12 @@ textarea {
     text-shadow: 2px 2px #595959;
 }
 
-.navbar-brand, a:hover {
-    color: dimgray
-
-}
-
 h2 {
     font-family:minecrafter
 }
 
+.navbar-inverse .navbar-brand:hover, 
+.navbar-inverse .navbar-brand:focus {
+  background-color: transparent;
+  color: #999999;
+}
