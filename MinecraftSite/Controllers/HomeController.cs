@@ -3,22 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MinecraftSite.Helpers;
 
 namespace MinecraftSite.Controllers
 {
     public class HomeController : Controller
     {
+        Gallery help = new Gallery();
+
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Map()
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase file)
         {
+            ViewBag.Message = help.ImageUpload(file);
             return View();
         }
 
-        public ActionResult Gallery()
+        public ActionResult Map()
         {
             return View();
         }
