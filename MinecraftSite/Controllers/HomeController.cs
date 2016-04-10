@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MinecraftSite.Helpers;
 
 namespace MinecraftSite.Controllers
 {
     public class HomeController : Controller
     {
+        Gallery help = new Gallery();
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -18,22 +20,7 @@ namespace MinecraftSite.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
         {
-            if (file != null && file.ContentLength > 0)
-                try
-                {
-                    string path = Path.Combine(Server.MapPath("~/Content/GalleryImages"), Path.GetFileName(file.FileName));
-                    file.SaveAs(path);
-                    ViewBag.Message = "Success";
-
-                }
-                catch (Exception ex)
-                {
-                    ViewBag.Message = "Error: " + ex.Message.ToString();
-                }
-            else
-            {
-                ViewBag.Message = "Need File";
-            }
+            ViewBag.Message = help.ImageUpload(file);
             return View();
         }
 
