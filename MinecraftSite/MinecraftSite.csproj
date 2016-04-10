@@ -243,6 +243,7 @@
     <Content Include="Content\Images\connect1.jpg" />
     <Content Include="Content\Images\connecteditprof.jpg" />
     <Content Include="Content\Images\connectserv.jpg" />
+    <Content Include="Content\Portals.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
