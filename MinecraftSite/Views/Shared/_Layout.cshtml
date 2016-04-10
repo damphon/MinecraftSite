@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Pazuzu Minecraft</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("CustomHead", required: false)
@@ -23,7 +23,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Map" ? "active" : "")">@Html.ActionLink("Map", "Map", "Home")</li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Gallery" ? "active" : "")">@Html.ActionLink("Gallery", "Gallery", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Connect" ? "active" : "")">@Html.ActionLink("Connect", "Connect", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Portals" ? "active" : "")">@Html.ActionLink("Portals", "Portals", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "External" ? "active" : "")">@Html.ActionLink("External", "External", "Home")</li>

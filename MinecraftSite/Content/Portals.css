@@ -1,2 +1,14 @@
 ﻿body {
 }
+
+h3 {
+    font-family:'Minecrafter Alt';
+}
+
+h3 a:hover {
+    color:white;
+}
+
+h3 a {
+    color:black;
+}
