@@ -16,7 +16,7 @@ namespace MinecraftSite.Helpers
     {
         public string ResultText = "ResultText";
 
-        public string ImageUpload(HttpPostedFileBase file)
+        public string ImageUpload(HttpPostedFileBase file, string UserName, string Description)
         {
             if ((file != null) && (file.ContentLength > 0) && (file.ContentLength <= 8000000))
                 try
@@ -26,16 +26,23 @@ namespace MinecraftSite.Helpers
 
                     if (FileTypeIsImage(ext))
                     {
-                        if (MakeThumb(file))
-                        {
-                            //Do sothething here
+                        if (WhiteList(UserName)) {
+                            if (MakeThumb(file))
+                            {
+                                //Update Database
+                            }
+                            else //make Thumb false
+                            {
+                                return ResultText;
+                            }
                         }
-                        else
+                        else//Whitelist false
                         {
+                            ResultText = "Permission Denied, Please contact server admin to be added to whitelist";
                             return ResultText;
                         }
                     }
-                    else
+                    else// FileTypeIsImage false
                     {
                         ResultText = "Please use a png, jpg, bmp, or tiff file";
                         return ResultText;
@@ -43,15 +50,22 @@ namespace MinecraftSite.Helpers
                     file.SaveAs(path);
                     ResultText = "Image has been uploaded";
                 }
-                catch (Exception ex){
+                catch (Exception ex){//Failed to save image
                     ResultText = "Error: " + ex.Message.ToString();
                 }
-            else
+            else //File not selected or an invalid size
             {
                 ResultText = "Invalid Image Size";
             }
 
             return ResultText;
+        }
+
+        private bool WhiteList(string UserName)
+        {
+            string[] whitelist = new string[] { "damphon", "clouddesu", "garangatang", "sterlingwing", "teepek", "talerdyn", "biscuitdesucre", "majesticbrother", "covolt100"};
+            if (whitelist.Any(UserName.ToLower().Contains)) return true;
+            else return false;
         }
 
         private bool MakeThumb(HttpPostedFileBase file)

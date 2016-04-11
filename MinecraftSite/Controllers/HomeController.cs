@@ -20,7 +20,9 @@ namespace MinecraftSite.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
         {
-            ViewBag.Message = help.ImageUpload(file);
+            string UserName = Request.Form["UserName"];
+            string Description = Request.Form["Description"];
+            ViewBag.Message = help.ImageUpload(file, UserName, Description);
             return View();
         }
 
