@@ -1,6 +1,9 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 75px;
     padding-bottom: 20px;
+    background-image: url("http://i608.photobucket.com/albums/tt165/desudesunekochan/Minecraft_snow_zps5beed2ih.jpg");
+    background-repeat: repeat;
+
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -43,6 +46,7 @@ h2 {
 .navbar-inverse .navbar-brand:focus {
   background-color: transparent;
   color: #999999;
+
 }
 
 iframe {
@@ -51,3 +55,11 @@ iframe {
     border:none;
 }
 
+figure {
+    display: inline-block;
+    margin: 20px;
+}
+
+figure figcaption {
+    text-align: center;
+}
