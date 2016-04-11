@@ -55,3 +55,11 @@ iframe {
     border:none;
 }
 
+figure {
+    display: inline-block;
+    margin: 20px;
+}
+
+figure figcaption {
+    text-align: center;
+}
