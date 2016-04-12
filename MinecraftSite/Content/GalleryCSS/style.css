@@ -1,7 +1,7 @@
 .rg-image-wrapper{
 	position:relative;
 	padding:20px 30px;
-	background:transparent url(../GalleryImages/black.png) repeat top left;
+	background:#000000;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
@@ -49,8 +49,9 @@
 }
 .rg-caption p{
 	font-size:11px;
-	letter-spacing:2px;
-	font-family: 'Trebuchet MS', 'Myriad Pro', Arial, sans-serif;
+    color:white;
+    letter-spacing:2px;
+	font-family: Arial, Helvetica, sans-serif;
 	line-height:16px;
 	padding:0 15px;
 	text-transform:uppercase;

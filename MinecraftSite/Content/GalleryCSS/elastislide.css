@@ -28,7 +28,7 @@
 .es-carousel ul li a{
 	display:block;
 	border-style:solid;
-	border-color:#222;
+	border-color:#000;
 	opacity:0.8;
 	-webkit-touch-callout:none;
 	/* option */
