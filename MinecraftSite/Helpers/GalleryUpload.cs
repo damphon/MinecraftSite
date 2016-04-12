@@ -9,12 +9,14 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Text;
 using System.Web;
+using MinecraftSite.Helpers;
 
 namespace MinecraftSite.Helpers
 {
     public class Gallery
     {
         public string ResultText = "ResultText";
+        MCDB dbhelp = new MCDB();
 
         public string ImageUpload(HttpPostedFileBase file, string UserName, string Description)
         {
@@ -27,12 +29,20 @@ namespace MinecraftSite.Helpers
                     if (FileTypeIsImage(ext))
                     {
                         if (WhiteList(UserName)) {
-                            if (MakeThumb(file))
+                            if (dbhelp.NewGalleryImage(Path.GetFileName(file.FileName), UserName, Description))
                             {
-                                //Update Database
+                                if (MakeThumb(file))
+                                {
+                                    //have the gallery refresh
+                                }
+                                else //make Thumb false
+                                {
+                                    return ResultText;
+                                }
                             }
-                            else //make Thumb false
+                            else //Database Connection Failed
                             {
+                                ResultText = "Failed to update database";
                                 return ResultText;
                             }
                         }
