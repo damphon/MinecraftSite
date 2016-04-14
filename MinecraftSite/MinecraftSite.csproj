@@ -258,6 +258,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\Minecrafter.ttf" />
+    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\GalleryScripts\gallery.js" />
     <Content Include="Scripts\GalleryScripts\jquery.easing.1.3.js" />

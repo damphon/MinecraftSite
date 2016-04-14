@@ -29,7 +29,7 @@ namespace MinecraftSite.Helpers
                     if (FileTypeIsImage(ext))
                     {
                         if (WhiteList(UserName)) {
-                            if (dbhelp.NewGalleryImage(Path.GetFileName(file.FileName), UserName, Description))
+                            if (dbhelp.NewGalleryImage(file.FileName, UserName, Description))
                             {
                                 if (MakeThumb(file))
                                 {
@@ -42,7 +42,8 @@ namespace MinecraftSite.Helpers
                             }
                             else //Database Connection Failed
                             {
-                                ResultText = "Failed to update database";
+                                ResultText = "Failed to update database File:";
+                                ResultText += dbhelp.test();
                                 return ResultText;
                             }
                         }

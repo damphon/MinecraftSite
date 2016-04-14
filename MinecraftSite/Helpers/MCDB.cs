@@ -14,8 +14,8 @@ namespace MinecraftSite.Helpers
             //Table is dbo.Gallery
             try
             {
-                ConnectionStringSettings mySetting = ConfigurationManager.ConnectionStrings["test"];
-                SqlConnection myConnection = new SqlConnection(mySetting.ConnectionString);
+                string connStr = ConfigurationManager.ConnectionStrings["MCDBConnection"].ConnectionString;
+                SqlConnection myConnection = new SqlConnection(connStr);
                 myConnection.Open();
                 SqlCommand myCommand = new SqlCommand("INSERT INTO Gallery (FileName, UserName, Description) VALUES ('" + filename + "','" + username + "','" + description + "');");
                 myConnection.Close();
@@ -25,6 +25,22 @@ namespace MinecraftSite.Helpers
                 return false;
             }
             return true;
+        }
+
+        public string test()
+        {
+            try
+            {
+                string connStr = ConfigurationManager.ConnectionStrings["MCDBConnection"].ConnectionString;
+                SqlConnection myConnection = new SqlConnection(connStr);
+                myConnection.Open();
+                myConnection.Close();
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
+            }
+            return "Connected to DB";
         }
     }
 }
