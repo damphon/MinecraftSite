@@ -28,8 +28,9 @@ namespace MinecraftSite.Helpers
 
                     if (FileTypeIsImage(ext))
                     {
-                        if (WhiteList(UserName)) {
-                            if (dbhelp.NewGalleryImage(file.FileName, UserName, Description))
+                        if (WhiteList(UserName))
+                        {
+                           if (dbhelp.NewGalleryImage(file.FileName, UserName, Description))
                             {
                                 if (MakeThumb(file))
                                 {
@@ -43,7 +44,6 @@ namespace MinecraftSite.Helpers
                             else //Database Connection Failed
                             {
                                 ResultText = "Failed to update database File:";
-                                ResultText += dbhelp.test();
                                 return ResultText;
                             }
                         }
@@ -62,13 +62,12 @@ namespace MinecraftSite.Helpers
                     ResultText = "Image has been uploaded";
                 }
                 catch (Exception ex){//Failed to save image
-                    ResultText = "Error: " + ex.Message.ToString();
+                    ResultText = "Image save Error: " + ex.Message.ToString();
                 }
             else //File not selected or an invalid size
             {
                 ResultText = "Invalid Image Size";
             }
-
             return ResultText;
         }
 

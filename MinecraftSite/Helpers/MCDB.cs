@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace MinecraftSite.Helpers
 {
@@ -11,36 +12,33 @@ namespace MinecraftSite.Helpers
     {
         public bool NewGalleryImage(string filename, string username, string description)
         {
-            //Table is dbo.Gallery
-            try
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MCDBConnection"].ToString()))
             {
-                string connStr = ConfigurationManager.ConnectionStrings["MCDBConnection"].ConnectionString;
-                SqlConnection myConnection = new SqlConnection(connStr);
-                myConnection.Open();
-                SqlCommand myCommand = new SqlCommand("INSERT INTO Gallery (FileName, UserName, Description) VALUES ('" + filename + "','" + username + "','" + description + "');");
-                myConnection.Close();
-            }
-            catch
-            {
-                return false;
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT INTO Gallery (FileName, UserName, Description) VALUES (@FileName, @UserName, @Description)";
+                    command.Parameters.AddWithValue("@FileName", filename);
+                    command.Parameters.AddWithValue("@UserName", username);
+                    command.Parameters.AddWithValue("@Description", description);
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        return false;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
             }
             return true;
         }
-
-        public string test()
-        {
-            try
-            {
-                string connStr = ConfigurationManager.ConnectionStrings["MCDBConnection"].ConnectionString;
-                SqlConnection myConnection = new SqlConnection(connStr);
-                myConnection.Open();
-                myConnection.Close();
-            }
-            catch (Exception e)
-            {
-                return e.ToString();
-            }
-            return "Connected to DB";
-        }
-    }
+    }    
 }
