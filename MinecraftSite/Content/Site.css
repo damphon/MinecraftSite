@@ -40,7 +40,10 @@ textarea {
 }
 
 h1 {
-    font-family:minecrafter;
+    font-family: 'Minecrafter Alt';
+    font-size:5em;
+    text-shadow:2px 2px #000000;
+    color:darkgray
 }
 
 h2 {
