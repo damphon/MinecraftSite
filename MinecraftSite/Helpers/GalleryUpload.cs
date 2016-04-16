@@ -15,7 +15,7 @@ namespace MinecraftSite.Helpers
 {
     public class Gallery
     {
-        public string ResultText = "ResultText";
+        public string ResultText = "Image has been uploaded";
         MCDB dbhelp = new MCDB();
 
         public string ImageUpload(HttpPostedFileBase file, string UserName, string Description)
@@ -23,23 +23,25 @@ namespace MinecraftSite.Helpers
             if ((file != null) && (file.ContentLength > 0) && (file.ContentLength <= 8000000))
                 try
                 {
-                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/GalleryImages"), Path.GetFileName(file.FileName));
-                    string ext = Path.GetExtension(path);
+                    //Verify that the file name is not to long for the database
+                    string filename = file.FileName;
+                    if (filename.Length > 19)
+                    {
+                        ResultText = "File Name To Long";
+                        return ResultText;
+                    }
 
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/GalleryImages"), Path.GetFileName(filename));
+                
+                    //Verify file is an image
+                    string ext = Path.GetExtension(filename);
                     if (FileTypeIsImage(ext))
                     {
                         if (WhiteList(UserName))
                         {
-                           if (dbhelp.NewGalleryImage(file.FileName, UserName, Description))
+                            if (dbhelp.NewGalleryImage(file.FileName, UserName, Description))
                             {
-                                if (MakeThumb(file))
-                                {
-                                    //have the gallery refresh
-                                }
-                                else //make Thumb false
-                                {
-                                    return ResultText;
-                                }
+                                MakeThumb(file);
                             }
                             else //Database Connection Failed
                             {
@@ -59,9 +61,9 @@ namespace MinecraftSite.Helpers
                         return ResultText;
                     }
                     file.SaveAs(path);
-                    ResultText = "Image has been uploaded";
                 }
-                catch (Exception ex){//Failed to save image
+                catch (Exception ex)
+                {//Failed to save image
                     ResultText = "Image save Error: " + ex.Message.ToString();
                 }
             else //File not selected or an invalid size
@@ -73,7 +75,7 @@ namespace MinecraftSite.Helpers
 
         private bool WhiteList(string UserName)
         {
-            string[] whitelist = new string[] { "damphon", "clouddesu", "garangatang", "sterlingwing", "teepek", "talerdyn", "biscuitdesucre", "majesticbrother", "covolt100"};
+            string[] whitelist = new string[] { "damphon", "clouddesu", "garangatang", "sterlingwing", "teepek", "talerdyn", "biscuitdesucre", "majesticbrother", "covolt100" };
             if (whitelist.Any(UserName.ToLower().Contains)) return true;
             else return false;
         }
@@ -114,14 +116,15 @@ namespace MinecraftSite.Helpers
         private bool FileTypeIsImage(string ext)
         {
             string type = ext.ToLower();
-            if ((type == ".png") || (type == ".jpeg") || (type == ".jpg") || (type == ".bmp") || (type == ".gif") || (type == ".tif") || (type == ".tiff")){
+            if ((type == ".png") || (type == ".jpeg") || (type == ".jpg") || (type == ".bmp") || (type == ".gif") || (type == ".tif") || (type == ".tiff"))
+            {
                 return true;
             }
             else
             {
                 return false;
             }
-            
+
         }
     }
 }

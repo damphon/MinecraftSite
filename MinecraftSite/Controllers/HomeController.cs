@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MinecraftSite.Models;
 using MinecraftSite.Helpers;
 
 namespace MinecraftSite.Controllers
 {
     public class HomeController : Controller
     {
-        Gallery help = new Gallery();
-
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var Gallery = GalleryModel.GalleryHTML();
+            return View(Gallery);
         }
 
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
         {
+            Gallery galleryHelper = new Gallery();
             string UserName = Request.Form["UserName"];
             string Description = Request.Form["Description"];
-            ViewBag.Message = help.ImageUpload(file, UserName, Description);
+            ViewBag.Message = galleryHelper.ImageUpload(file, UserName, Description);
             return View();
         }
 
