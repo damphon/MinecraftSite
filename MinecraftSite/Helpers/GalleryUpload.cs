@@ -15,7 +15,7 @@ namespace MinecraftSite.Helpers
 {
     public class Gallery
     {
-        public string ResultText = "ResultText";
+        public string ResultText = "Image has been uploaded";
         MCDB dbhelp = new MCDB();
 
         public string ImageUpload(HttpPostedFileBase file, string UserName, string Description)
@@ -23,23 +23,25 @@ namespace MinecraftSite.Helpers
             if ((file != null) && (file.ContentLength > 0) && (file.ContentLength <= 8000000))
                 try
                 {
-                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/GalleryImages"), Path.GetFileName(file.FileName));
-                    string ext = Path.GetExtension(path);
+                    //Verify that the file name is not to long for the database
+                    string filename = file.FileName;
+                    if (filename.Length > 19)
+                    {
+                        ResultText = "File Name To Long";
+                        return ResultText;
+                    }
 
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/GalleryImages"), Path.GetFileName(filename));
+                
+                    //Verify file is an image
+                    string ext = Path.GetExtension(filename);
                     if (FileTypeIsImage(ext))
                     {
                         if (WhiteList(UserName))
                         {
                             if (dbhelp.NewGalleryImage(file.FileName, UserName, Description))
                             {
-                                if (MakeThumb(file))
-                                {
-                                    //have the gallery refresh
-                                }
-                                else //make Thumb false
-                                {
-                                    return ResultText;
-                                }
+                                MakeThumb(file);
                             }
                             else //Database Connection Failed
                             {
@@ -59,7 +61,6 @@ namespace MinecraftSite.Helpers
                         return ResultText;
                     }
                     file.SaveAs(path);
-                    ResultText = "Image has been uploaded";
                 }
                 catch (Exception ex)
                 {//Failed to save image

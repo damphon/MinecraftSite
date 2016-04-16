@@ -54,9 +54,11 @@
                     </div>
                     <div class="es-carousel">
                         <ul>
-                          @foreach (var G in Model)
-                          {
-                               <li><a href="#"><img src="~/Content/GalleryImages/thumbs/@G.FileNameQuery" data-large="~/Content/GalleryImages/@G.FileNameQuery" alt="Gallery Image" data-description="@G.DescriptionQuery" class="@G.UserNameQuery"/></a></li>
+                          @if(Model != null) {
+                              foreach (var G in Model)
+                              {
+                               <li><a href="#"><img src="~/Content/GalleryImages/thumbs/@G.FileNameQuery" data-large="~/Content/GalleryImages/@G.FileNameQuery" alt="Gallery Image" data-description="@G.DescriptionQuery" user="@G.UserNameQuery"/></a></li>
+                              }
                           }
                         </ul>
                     </div>
