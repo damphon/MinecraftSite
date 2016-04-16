@@ -30,7 +30,7 @@ namespace MinecraftSite.Helpers
                     {
                         if (WhiteList(UserName))
                         {
-                           if (dbhelp.NewGalleryImage(file.FileName, UserName, Description))
+                            if (dbhelp.NewGalleryImage(file.FileName, UserName, Description))
                             {
                                 if (MakeThumb(file))
                                 {
@@ -61,7 +61,8 @@ namespace MinecraftSite.Helpers
                     file.SaveAs(path);
                     ResultText = "Image has been uploaded";
                 }
-                catch (Exception ex){//Failed to save image
+                catch (Exception ex)
+                {//Failed to save image
                     ResultText = "Image save Error: " + ex.Message.ToString();
                 }
             else //File not selected or an invalid size
@@ -73,7 +74,7 @@ namespace MinecraftSite.Helpers
 
         private bool WhiteList(string UserName)
         {
-            string[] whitelist = new string[] { "damphon", "clouddesu", "garangatang", "sterlingwing", "teepek", "talerdyn", "biscuitdesucre", "majesticbrother", "covolt100"};
+            string[] whitelist = new string[] { "damphon", "clouddesu", "garangatang", "sterlingwing", "teepek", "talerdyn", "biscuitdesucre", "majesticbrother", "covolt100" };
             if (whitelist.Any(UserName.ToLower().Contains)) return true;
             else return false;
         }
@@ -114,14 +115,15 @@ namespace MinecraftSite.Helpers
         private bool FileTypeIsImage(string ext)
         {
             string type = ext.ToLower();
-            if ((type == ".png") || (type == ".jpeg") || (type == ".jpg") || (type == ".bmp") || (type == ".gif") || (type == ".tif") || (type == ".tiff")){
+            if ((type == ".png") || (type == ".jpeg") || (type == ".jpg") || (type == ".bmp") || (type == ".gif") || (type == ".tif") || (type == ".tiff"))
+            {
                 return true;
             }
             else
             {
                 return false;
             }
-            
+
         }
     }
 }

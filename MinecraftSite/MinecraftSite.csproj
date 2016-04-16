@@ -176,6 +176,7 @@
     <Compile Include="Helpers\MCDB.cs" />
     <Compile Include="Helpers\GalleryUpload.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\GalleryModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,60 +187,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\GalleryCSS\elastislide.css" />
     <Content Include="Content\GalleryCSS\style.css" />
-    <Content Include="Content\GalleryImages\1.jpg" />
-    <Content Include="Content\GalleryImages\10.jpg" />
-    <Content Include="Content\GalleryImages\11.jpg" />
-    <Content Include="Content\GalleryImages\12.jpg" />
-    <Content Include="Content\GalleryImages\13.jpg" />
-    <Content Include="Content\GalleryImages\14.jpg" />
-    <Content Include="Content\GalleryImages\15.jpg" />
-    <Content Include="Content\GalleryImages\16.jpg" />
-    <Content Include="Content\GalleryImages\17.jpg" />
-    <Content Include="Content\GalleryImages\18.jpg" />
-    <Content Include="Content\GalleryImages\19.jpg" />
-    <Content Include="Content\GalleryImages\2.jpg" />
-    <Content Include="Content\GalleryImages\20.jpg" />
-    <Content Include="Content\GalleryImages\21.jpg" />
-    <Content Include="Content\GalleryImages\22.jpg" />
-    <Content Include="Content\GalleryImages\23.jpg" />
-    <Content Include="Content\GalleryImages\24.jpg" />
-    <Content Include="Content\GalleryImages\3.jpg" />
-    <Content Include="Content\GalleryImages\4.jpg" />
-    <Content Include="Content\GalleryImages\5.jpg" />
-    <Content Include="Content\GalleryImages\6.jpg" />
-    <Content Include="Content\GalleryImages\7.jpg" />
-    <Content Include="Content\GalleryImages\8.jpg" />
-    <Content Include="Content\GalleryImages\9.jpg" />
     <Content Include="Content\GalleryImages\ajax-loader.gif" />
     <Content Include="Content\GalleryImages\black.png" />
-    <Content Include="Content\GalleryImages\ImageAttribution.txt" />
     <Content Include="Content\GalleryImages\nav.png" />
     <Content Include="Content\GalleryImages\nav_thumbs.png" />
     <Content Include="Content\GalleryImages\pattern.png" />
-    <Content Include="Content\GalleryImages\thumbs\1.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\10.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\11.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\12.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\13.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\14.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\15.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\16.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\17.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\18.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\19.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\2.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\20.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\21.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\22.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\23.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\24.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\3.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\4.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\5.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\6.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\7.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\8.jpg" />
-    <Content Include="Content\GalleryImages\thumbs\9.jpg" />
     <Content Include="Content\GalleryImages\views.png" />
     <Content Include="Content\Images\brewing wiki.jpg" />
     <Content Include="Content\Images\connect1.jpg" />
@@ -314,6 +266,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\GalleryImages\thumbs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

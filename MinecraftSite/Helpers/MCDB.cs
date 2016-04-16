@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using MinecraftSite.Models;
 
 namespace MinecraftSite.Helpers
 {
@@ -28,17 +29,39 @@ namespace MinecraftSite.Helpers
                         connection.Open();
                         command.ExecuteNonQuery();
                     }
-                    catch (SqlException e)
+                    catch (SqlException)
                     {
                         return false;
-                    }
-                    finally
-                    {
-                        connection.Close();
                     }
                 }
             }
             return true;
         }
+
+        public List<GalleryModel> GetGalleryImage()
+        {
+            var ListOfStrings = new List<GalleryModel>();
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MCDBConnection"].ToString()))
+            {
+                connection.Open();
+                string query = "SELECT * FROM Gallery";
+                using (var command = new SqlCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var GalleryString = new GalleryModel();
+                            GalleryString.FileNameQuery = reader.GetString(reader.GetOrdinal("FileName"));
+                            GalleryString.UserNameQuery = reader.GetString(reader.GetOrdinal("UserName"));
+                            GalleryString.DescriptionQuery = reader.GetString(reader.GetOrdinal("Description"));
+
+                            ListOfStrings.Add(GalleryString);
+                        }
+                    }
+                }
+            }
+            return ListOfStrings;
+        } 
     }    
 }
