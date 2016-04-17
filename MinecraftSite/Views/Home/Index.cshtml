@@ -58,7 +58,7 @@
                          {
                              foreach (var G in Model)
                              {
-                                <li><a href="#"><img src="../../Content/GalleryImages/thumbs/@G.FileNameQuery" data-large="../../Content/GalleryImages/@G.FileNameQuery" alt="Gallery Image" data-description="@G.DescriptionQuery" user="@G.UserNameQuery" /></a></li>
+                                <li><a href="#"><img src="../../Content/GalleryImages/thumbs/@G.FileNameQuery" data-large="../../Content/GalleryImages/@G.FileNameQuery" alt="Gallery Image" data-description="@G.DescriptionQuery" data-user="@G.UserNameQuery" /></a></li>
                              }
                          }
                         </ul>
@@ -67,7 +67,6 @@
             </div><!-- rg-thumbs -->
         </div><!-- rg-gallery -->
     </div><!-- content -->
-   
     
      <div class="well">
     @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))

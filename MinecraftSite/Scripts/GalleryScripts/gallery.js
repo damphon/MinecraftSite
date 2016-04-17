@@ -210,16 +210,17 @@ $(function() {
 				$items.removeClass('selected');
 				$item.addClass('selected');
 					 
-				var $thumb		= $item.find('img'),
-					largesrc	= $thumb.data('large'),
-					title		= $thumb.data('description');
+			    var $thumb = $item.find('img'),
+					largesrc = $thumb.data('large'),
+                    avatar = $thumb.data('user'),
+					title = $thumb.data('description');
 				
 				$('<img/>').load( function() {
 					
-					$rgGallery.find('div.rg-image').empty().append('<img src="' + largesrc + '"/>');
-					
+				    $rgGallery.find('div.rg-image').empty().append('<img src="' + largesrc + '"/>');
+
 					if( title )
-						$rgGallery.find('div.rg-caption').show().children('p').empty().text( title );
+					    $rgGallery.find('div.rg-caption').show().children('p').empty().html('<img src="https://minotar.net/helm/' + avatar + '/150.png" width="30" Height="30"/>    ' + title);
 					
 					$loader.hide();
 					
