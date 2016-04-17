@@ -33,6 +33,12 @@ textarea {
     src: local("minecrafter"), url("../fonts/Minecrafter.ttf") format("truetype"); /* non-IE */
 }
 
+@font-face {
+    font-family:Minecrafteralt;
+    src:url(../fonts/minecrafteralt.ttf);
+    src:local("minecrafteralt"), url("../fonts/minecrafteralt.ttf") format("truetype");
+}
+
 .navbar-brand {
     font-family: minecrafter;
     font-size: 2em;
@@ -40,7 +46,7 @@ textarea {
 }
 
 h1 {
-    font-family: 'Minecrafter Alt';
+    font-family: minecrafteralt;
     font-size:5em;
     text-shadow:2px 2px #000000;
     color:darkgray
