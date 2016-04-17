@@ -210,6 +210,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\Minecrafter.ttf" />
+    <Content Include="fonts\Minecrafteralt.ttf" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\GalleryScripts\gallery.js" />
@@ -266,6 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Fonts\" />
     <Folder Include="Content\GalleryImages\thumbs\" />
   </ItemGroup>
   <ItemGroup>
