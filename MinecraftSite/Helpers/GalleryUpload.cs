@@ -25,7 +25,7 @@ namespace MinecraftSite.Helpers
                 {
                     //Verify that the file name is not to long for the database
                     string filename = file.FileName;
-                    if (filename.Length > 19)
+                    if (filename.Length > 39)
                     {
                         ResultText = "File Name To Long";
                         return ResultText;
