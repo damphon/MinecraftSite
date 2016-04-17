@@ -67,10 +67,10 @@
             </div><!-- rg-thumbs -->
         </div><!-- rg-gallery -->
     </div><!-- content -->
-    
+</div><!--well-->
      <div class="well">
     @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {  
+    {
         <h2>Gallery Submission</h2> 
         <br />   
         <div class="form-group">
@@ -93,7 +93,6 @@
                     <p class="help-block">Submit screencaps to the Gallery.</p>
                 </div>
             </div>
-
 
             @ViewBag.Message
 

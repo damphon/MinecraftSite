@@ -173,9 +173,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Comments.cs" />
     <Compile Include="Helpers\MCDB.cs" />
     <Compile Include="Helpers\GalleryUpload.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\GalleryModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
