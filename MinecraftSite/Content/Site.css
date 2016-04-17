@@ -78,6 +78,20 @@ figure figcaption {
     text-align: center;
 }
 
+.outer {
+    width: 100%;
+    overflow: hidden;
+}
+
+.inner {
+    margin: 5px;
+    width: 170%
+}
+
+input {
+    width:160%
+}
+
 label {
     text-align: right;
     clear: both;
@@ -93,4 +107,20 @@ input[type=button], input[type=submit], input[type=reset] {
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+.btn-info {
+    background-color: #667a99;
+    border: none;
+    color: white;
+    padding: 5px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: fixed;
+}
+
+.wrapper {
+    text-align: center;
+    margin-left:-150px
 }
