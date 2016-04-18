@@ -56,6 +56,8 @@ h2 {
     font-family:minecrafter
 }
 
+
+
 .navbar-inverse .navbar-brand:hover, 
 .navbar-inverse .navbar-brand:focus {
   background-color: transparent;
@@ -113,7 +115,7 @@ input[type=button], input[type=submit], input[type=reset] {
     background-color: #667a99;
     border: none;
     color: white;
-    padding: 0px 32px;
+    padding: 5px 32px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
@@ -125,3 +127,4 @@ input[type=button], input[type=submit], input[type=reset] {
     text-align: center;
     margin-left:-150px
 }
+
