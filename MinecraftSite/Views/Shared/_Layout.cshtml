@@ -27,7 +27,7 @@
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Portals" ? "active" : "")">@Html.ActionLink("Portals", "Portals", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "External" ? "active" : "")">@Html.ActionLink("External", "External", "Home")</li>
                 </ul>
-                
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -35,8 +35,6 @@
         @RenderBody()
         <hr />
         <footer>
- 
-            <script type="text/javascript" src="waddledoo.ddns.net:8080/js/widget.js"></script>
             <p>&copy; @DateTime.Now.Year - Pazuzu Minecraft</p>
         </footer>
     </div>

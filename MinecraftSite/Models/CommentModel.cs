@@ -6,12 +6,12 @@ using MinecraftSite.Helpers;
 
 namespace MinecraftSite.Models
 {
-    public class GalleryModel
+    public class CommentModel
     {
         public string CommentDateQuery { get; set; }
-        public string FileNameQuery { get; set; }
+        public string PageQuery { get; set; }
         public string UserNameQuery { get; set; }
-        public string DescriptionQuery { get; set; }
+        public string CommentQuery { get; set; }
 
         public static List<GalleryModel> GalleryHTML()
         {
