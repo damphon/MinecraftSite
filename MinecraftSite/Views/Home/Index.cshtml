@@ -1,6 +1,4 @@
-﻿@model List<MinecraftSite.Models.GalleryModel>
-
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
@@ -56,9 +54,9 @@
                                 </div>
                                 <div class="es-carousel">
                                     <ul>
-                                        @if (Model != null)
+                                        @if (ViewBag.Gallery != null)
                                         {
-                                            foreach (var G in Model)
+                                            foreach (var G in ViewBag.Gallery)
                                             {
                                                 <li><a href="#"><img src="../../Content/GalleryImages/thumbs/@G.FileNameQuery" data-large="../../Content/GalleryImages/@G.FileNameQuery" alt="Gallery Image" data-description="@G.DescriptionQuery" data-user="@G.UserNameQuery" /></a></li>
                                             }

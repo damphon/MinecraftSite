@@ -12,9 +12,10 @@
     }
 }
 
-@using (Html.BeginForm("Comments", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Ajax.BeginForm(actionName: "Comments", controllerName: "Home", routeValues: null, ajaxOptions: new AjaxOptions()
+                         { HttpMethod = "POST", OnSuccess = "RecordUpdated", OnFailure = "AjaxFailed" }, htmlAttributes: new { id = "editForm" }))
 {
-    <fieldset>
+    <fieldset> 
 
         <!-- Form Name -->
         <legend>Leave A Comment</legend>

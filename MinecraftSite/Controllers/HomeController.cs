@@ -13,8 +13,8 @@ namespace MinecraftSite.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var Gallery = GalleryModel.GalleryHTML();
-            return View(Gallery);
+            ViewBag.Gallery = GalleryModel.GalleryHTML();
+            return View();
         }
 
         [HttpPost]
@@ -50,7 +50,7 @@ namespace MinecraftSite.Controllers
         [HttpGet]
         public PartialViewResult Comments()
         {
-            //var CommentString = CommentModel.CommentHTML();
+            var CommentString = CommentModel.CommentHTML();
             return PartialView();
         }
 

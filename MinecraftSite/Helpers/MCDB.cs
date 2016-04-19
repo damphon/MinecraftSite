@@ -95,7 +95,7 @@ namespace MinecraftSite.Helpers
 
         public List<CommentModel> GetComments()
         {
-            var ListOfStrings = new List<CommentModel>();
+            var ListofComments = new List<CommentModel>();
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MCDBConnection"].ToString()))
             {
                 connection.Open();
@@ -112,12 +112,12 @@ namespace MinecraftSite.Helpers
                             CommentString.UserNameQuery = reader.GetString(reader.GetOrdinal("UserName"));
                             CommentString.CommentQuery = reader.GetString(reader.GetOrdinal("Comment"));
 
-                            ListOfStrings.Add(CommentString);
+                            ListofComments.Add(CommentString);
                         }
                     }
                 }
             }
-            return ListOfStrings;
+            return ListofComments;
         }
     }    
 }
