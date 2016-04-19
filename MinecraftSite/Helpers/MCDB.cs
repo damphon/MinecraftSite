@@ -66,6 +66,33 @@ namespace MinecraftSite.Helpers
             return ListOfStrings;
         }
         /////////////////////////////////////////////////////////////DB querys for Comments go here////////////////////////////////////////////////////////////////////
+        public bool NewComment(string page, string username, string comment)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["MCDBConnection"].ToString()))
+            {
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT INTO Comments (Page, UserName, Comment) VALUES (@Page, @UserName, @Comment)";
+                    command.Parameters.AddWithValue("@Page", page);
+                    command.Parameters.AddWithValue("@UserName", username);
+                    command.Parameters.AddWithValue("@Comment", comment);
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (SqlException)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         public List<CommentModel> GetComments()
         {
             var ListOfStrings = new List<CommentModel>();
@@ -80,7 +107,7 @@ namespace MinecraftSite.Helpers
                         while (reader.Read())
                         {
                             var CommentString = new CommentModel();
-                            CommentString.CommentDateQuery = String.Format("{0:u}", reader.GetString(reader.GetOrdinal("CommentDate")));
+                            CommentString.CommentDateQuery = Convert.ToDateTime(reader["CommentDate"]).ToString("MMMM dd, yyyy H:mm");
                             CommentString.PageQuery = reader.GetString(reader.GetOrdinal("Page"));
                             CommentString.UserNameQuery = reader.GetString(reader.GetOrdinal("UserName"));
                             CommentString.CommentQuery = reader.GetString(reader.GetOrdinal("Comment"));

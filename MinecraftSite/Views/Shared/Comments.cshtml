@@ -1,0 +1,51 @@
+﻿@model List<MinecraftSite.Models.CommentModel>
+@{ Uri CurrentURL = Request.Url;}
+
+@if (Model != null)
+{
+    foreach (var Comment in Model)
+    {
+        if (Comment.PageQuery == CurrentURL.ToString())
+        {
+            //Make an object that has the date, username, and comment for everything then print it sorted by date.
+        }
+    }
+}
+
+@using (Html.BeginForm("Comments", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Leave A Comment</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="UserName">Minecraft Username</label>
+            <div class="col-md-4">
+                <input id="UserName" name="UserName" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Comment">Comment</label>
+            <div class="col-md-4">
+                <textarea class="form-control" id="Comment" name="Comment"></textarea>
+            </div>
+        </div>
+
+        <!--Page data-->
+        <input type="hidden" id="Page" name="Page" value="@CurrentURL" />
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="submit"></label>
+            <div class="col-md-4">
+                <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+    </fieldset>
+}

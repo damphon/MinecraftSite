@@ -46,5 +46,20 @@ namespace MinecraftSite.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public PartialViewResult Comments()
+        {
+            //var CommentString = CommentModel.CommentHTML();
+            return PartialView();
+        }
+
+        [HttpPost]
+        public PartialViewResult Comments(string Page, string UserName, string Comment)
+        {
+            Comments commentHelper = new Comments();
+            commentHelper.LeaveComment(Page, UserName, Comment);
+            return PartialView();
+        }
     }
 }

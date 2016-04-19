@@ -13,10 +13,10 @@ namespace MinecraftSite.Models
         public string UserNameQuery { get; set; }
         public string CommentQuery { get; set; }
 
-        public static List<GalleryModel> GalleryHTML()
+        public static List<CommentModel> CommentHTML()
         {
             MCDB dbhelp = new MCDB();
-            return dbhelp.GetGalleryImage();
+            return dbhelp.GetComments();
         }
     }
 }

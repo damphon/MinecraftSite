@@ -266,6 +266,7 @@
     <Content Include="Views\Home\Map.cshtml" />
     <Content Include="Views\Home\External.cshtml" />
     <Content Include="Views\Home\Portals.cshtml" />
+    <Content Include="Views\Shared\Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
