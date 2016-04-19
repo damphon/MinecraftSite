@@ -128,3 +128,14 @@ input[type=button], input[type=submit], input[type=reset] {
     margin-left:-150px
 }
 
+
+.btn {
+    
+    background-color:#667a99;
+    color:white;
+    
+} 
+
+.btn:hover {
+    background-color: blueviolet;
+}
