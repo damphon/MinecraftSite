@@ -1,16 +1,12 @@
 ﻿@model List<MinecraftSite.Models.CommentModel>
-@{ Uri CurrentURL = Request.Url;}
-
-@if (Model != null)
-{
-    foreach (var Comment in Model)
-    {
-        if (Comment.PageQuery == CurrentURL.ToString())
-        {
-            //Make an object that has the date, username, and comment for everything then print it sorted by date.
-        }
-    }
-}
+@{ 
+    Uri CurrentURL = Request.Url;
+    Comments commentHelper = new Comments();
+ }
+<h2>Comments:</h2>
+<ul class="commentSection">
+    @Html.Raw(commentHelper.ArrayBuilder(CurrentURL.ToString()))
+</ul>
 
 @using (Ajax.BeginForm(actionName: "Comments", controllerName: "Home", routeValues: null, ajaxOptions: new AjaxOptions()
                          { HttpMethod = "POST", OnSuccess = "RecordUpdated", OnFailure = "AjaxFailed" }, htmlAttributes: new { id = "editForm" }))
