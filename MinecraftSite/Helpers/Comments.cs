@@ -30,26 +30,35 @@ namespace MinecraftSite.Helpers
         public string ArrayBuilder(string CurrentURL)
         {
             var CommentString = CommentModel.CommentHTML();
-            string tempstring = "";
+            string SortedString = "";
+            List<CommentModel> TempList = new List<CommentModel>();
+            List<CommentModel> SortedList = new List<CommentModel>();
 
             foreach (var comment in CommentString)
             {
                 if (comment.PageQuery == CurrentURL)
                 {
-                    StringBuilder sb = new StringBuilder(tempstring);
-                    sb.Append("<li class='comment'><div class='commentHeader'><cite><img src = 'https://minotar.net/helm/");
-                    sb.Append(comment.UserNameQuery);
-                    sb.Append("/150.png' width='30' Height='30'/><span class= 'commentUser'>");
-                    sb.Append(comment.UserNameQuery);
-                    sb.Append("</span><span class='commentTime'>");
-                    sb.Append(comment.CommentDateQuery);
-                    sb.Append("</span></cite ></div ><div class='commentBody'><div class='commentMessage'><p>");
-                    sb.Append(comment.CommentQuery);
-                    sb.Append("</p></div></div></li>");
-                    tempstring = sb.ToString();
+                    TempList.Add(comment);
                 }
             }
-            return tempstring;
+
+            SortedList = TempList.OrderBy(o => o.CommentDateQuery).ToList();
+
+            foreach (var comment in SortedList)
+            {
+                StringBuilder sb = new StringBuilder(SortedString);
+                sb.Append("<li class='comment'><div class='commentHeader'><cite><img src = 'https://minotar.net/helm/");
+                sb.Append(comment.UserNameQuery);
+                sb.Append("/150.png' width='30' Height='30'/><span class= 'commentUser'>");
+                sb.Append(comment.UserNameQuery);
+                sb.Append("</span><span class='commentTime'>");
+                sb.Append(comment.CommentDateQuery);
+                sb.Append("</span></cite ></div ><div class='commentBody'><div class='commentMessage'><p>");
+                sb.Append(comment.CommentQuery);
+                sb.Append("</p></div></div></li>");
+                SortedString = sb.ToString();
+            }
+            return SortedString;
         }
     }
 }
