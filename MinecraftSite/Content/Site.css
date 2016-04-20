@@ -105,10 +105,11 @@ input[type=button], input[type=submit], input[type=reset] {
     background-color: #667a99;
     border: none;
     color: white;
-    padding: 5px 32px;
+    padding: 5px 10px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius:25px;
 }
 
 .btn-info {
@@ -117,14 +118,24 @@ input[type=button], input[type=submit], input[type=reset] {
     color: white;
     padding: 5px 32px;
     text-decoration: none;
-    margin: 4px 2px;
+    margin: auto;
     cursor: pointer;
     position: fixed;
 }
 
-
 .wrapper {
     text-align: center;
-    margin-left:-150px
+    margin-left:-10px
 }
 
+.btn {
+    
+    background-color:#667a99;
+    color:white;
+    
+    
+} 
+
+.btn:hover {
+    background-color: #b6b6c9;
+}
