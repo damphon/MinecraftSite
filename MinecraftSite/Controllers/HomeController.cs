@@ -60,5 +60,11 @@ namespace MinecraftSite.Controllers
             commentHelper.LeaveComment(Page, UserName, Comment);
             return Redirect(Page);
         }
+
+        public ActionResult UserHistory()
+        {
+            ViewBag.Gallery = GalleryModel.GalleryHTML();
+            return View();
+        }
     }
 }

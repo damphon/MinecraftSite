@@ -17,7 +17,7 @@ namespace MinecraftSite.Helpers
             {
                 dbhelp.NewComment(Page, UserName, Comment);
             }
-                return;
+            return;
         }
 
         private bool WhiteList(string UserName)
@@ -49,9 +49,47 @@ namespace MinecraftSite.Helpers
                 StringBuilder sb = new StringBuilder(SortedString);
                 sb.Append("<li class='comment'><div class='commentHeader'><cite><img src = 'https://minotar.net/helm/");
                 sb.Append(comment.UserNameQuery);
-                sb.Append("/150.png' width='30' Height='30'/><span class= 'commentUser'>");
+                sb.Append("/150.png' width='30' Height='30'/><span class= 'commentUser'><a href='/Home/UserHistory/");
                 sb.Append(comment.UserNameQuery);
-                sb.Append("</span><span class='commentTime'>");
+                sb.Append("'>");
+                sb.Append(comment.UserNameQuery);
+                sb.Append("</a></span><span class='commentTime'>");
+                sb.Append(comment.CommentDateQuery);
+                sb.Append("</span></cite ></div ><div class='commentBody'><div class='commentMessage'><p>");
+                sb.Append(comment.CommentQuery);
+                sb.Append("</p></div></div></li>");
+                SortedString = sb.ToString();
+            }
+            return SortedString;
+        }
+
+        public string CommentHistory(string UserName)
+        {
+            var CommentString = CommentModel.CommentHTML();
+            string SortedString = "";
+            List<CommentModel> TempList = new List<CommentModel>();
+            List<CommentModel> SortedList = new List<CommentModel>();
+
+            foreach (var comment in CommentString)
+            {
+                if (comment.UserNameQuery == UserName)
+                {
+                    TempList.Add(comment);
+                }
+            }
+
+            SortedList = TempList.OrderBy(o => o.CommentDateQuery).ToList();
+
+            foreach (var comment in SortedList)
+            {
+                StringBuilder sb = new StringBuilder(SortedString);
+                sb.Append("<li class='comment'><div class='commentHeader'><cite><img src = 'https://minotar.net/helm/");
+                sb.Append(comment.UserNameQuery);
+                sb.Append("/150.png' width='30' Height='30'/><span class= 'commentUser'><a href='/Home/UserHistory/");
+                sb.Append(comment.UserNameQuery);
+                sb.Append("'>");
+                sb.Append(comment.UserNameQuery);
+                sb.Append("</a></span><span class='commentTime'>");
                 sb.Append(comment.CommentDateQuery);
                 sb.Append("</span></cite ></div ><div class='commentBody'><div class='commentMessage'><p>");
                 sb.Append(comment.CommentQuery);

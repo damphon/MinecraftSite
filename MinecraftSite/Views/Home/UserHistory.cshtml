@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Comments commentHelper = new Comments();
+    string UserURL = Request.Url.ToString();
+    string CurrentUser = Path.GetFileName(UserURL);
+    ViewBag.Title = CurrentUser + "'s History";
+}
+
+@section CustomHead
+{
+    <link rel="stylesheet" type="text/css" href="~/Content/GalleryCSS/elastislide.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/GalleryCSS/style.css" />
+    <noscript>
+        <style>
+            .es-carousel ul {
+                display: block;
+            }
+        </style>
+    </noscript>
+    <script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">
+        <div class="rg-image-wrapper">
+            {{if itemsCount > 1}}
+            <div class="rg-image-nav">
+                <a href="#" class="rg-image-nav-prev">Previous Image</a>
+                <a href="#" class="rg-image-nav-next">Next Image</a>
+            </div>
+            {{/if}}
+            <div class="rg-image"></div>
+            <div class="rg-loading"></div>
+            <div class="rg-caption-wrapper">
+                <div class="rg-caption" style="display:none;">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </script>
+}
+
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/GalleryScripts/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/GalleryScripts/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/Scripts/GalleryScripts/jquery.elastislide.js"></script>
+    <script type="text/javascript" src="~/Scripts/GalleryScripts/gallery.js"></script>
+}
+
+<!--Page Start-->
+<div class="well">
+    <h2>@CurrentUser Comment History</h2>
+    <img src="https://minotar.net/body/@CurrentUser/150.png" />
+
+    <ul class="commentSection" style="list-style-type:none">
+        @Html.Raw(commentHelper.CommentHistory(CurrentUser))
+    </ul>
+
+    <!--User image gallery-->
+
+    <div class="content" align="center">
+        <h2>Images from @CurrentUser</h2>
+        <div id="rg-gallery" class="rg-gallery">
+            <div class="rg-thumbs">
+
+                <!-- Elastislide Carousel Thumbnail Viewer -->
+                <div class="es-carousel-wrapper">
+                    <div class="es-nav">
+                        <span class="es-nav-prev">Previous</span>
+                        <span class="es-nav-next">Next</span>
+                    </div>
+                    <div class="es-carousel">
+                        <ul>
+                            @if (ViewBag.Gallery != null)
+                            {
+                                foreach (var G in ViewBag.Gallery)
+                                {
+                                    if (G.UserNameQuery == CurrentUser)
+                                    {
+                                        <li><a href="#"><img src="../../Content/GalleryImages/thumbs/@G.FileNameQuery" data-large="../../Content/GalleryImages/@G.FileNameQuery" alt="Gallery Image" data-description="@G.DescriptionQuery" data-user="@G.UserNameQuery" /></a></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div><!-- End Elastislide Carousel Thumbnail Viewer -->
+            </div><!-- rg-thumbs -->
+        </div><!-- rg-gallery -->
+    </div><!--Endo of user image gallery-->
+</div><!--End Well-->
+
