@@ -3,46 +3,52 @@
     Uri CurrentURL = Request.Url;
     Comments commentHelper = new Comments();
  }
-<h2>Comments:</h2>
-<ul class="commentSection">
-    @Html.Raw(commentHelper.ArrayBuilder(CurrentURL.ToString()))
-</ul>
 
-@using (Ajax.BeginForm(actionName: "Comments", controllerName: "Home", routeValues: null, ajaxOptions: new AjaxOptions()
-                         { HttpMethod = "POST", OnSuccess = "RecordUpdated", OnFailure = "AjaxFailed" }, htmlAttributes: new { id = "editForm" }))
-{
-    <fieldset> 
+<div class="well">
+    <h2>Comments:</h2>
+        
+        <ul class="commentSection" style="list-style-type:none">
+            @Html.Raw(commentHelper.ArrayBuilder(CurrentURL.ToString()))
+        </ul>
+    
+    @using (Ajax.BeginForm(actionName: "Comments", controllerName: "Home", routeValues: null, ajaxOptions: new AjaxOptions()
+    { HttpMethod = "POST", OnSuccess = "RecordUpdated", OnFailure = "AjaxFailed" }, htmlAttributes: new { id = "editForm" }))
+    {
+        <fieldset>
 
-        <!-- Form Name -->
-        <legend>Leave A Comment</legend>
+            <!-- Form Name -->
+            <legend><h4>Leave a Comment</h4></legend>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="UserName">Minecraft Username</label>
-            <div class="col-md-4">
-                <input id="UserName" name="UserName" type="text" placeholder="" class="form-control input-md">
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="UserName">Minecraft Username</label>
+                <div class="col-md-4">
+                    <input id="UserName" name="UserName" type="text" placeholder="" class="form-control input-md">
 
+                </div>
             </div>
-        </div>
-
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="Comment">Comment</label>
-            <div class="col-md-4">
-                <textarea class="form-control" id="Comment" name="Comment"></textarea>
+            <br />
+            <br />
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="Comment">Comment</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="Comment" name="Comment"></textarea>
+                </div>
             </div>
-        </div>
 
-        <!--Page data-->
-        <input type="hidden" id="Page" name="Page" value="@CurrentURL" />
+            <!--Page data-->
+            <input type="hidden" id="Page" name="Page" value="@CurrentURL" />
 
-        <!-- Button -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="submit"></label>
-            <div class="col-md-4">
-                <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-md-4">
+                    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+                </div>
             </div>
-        </div>
 
-    </fieldset>
-}
+        </fieldset>
+    }
+
+</div>
