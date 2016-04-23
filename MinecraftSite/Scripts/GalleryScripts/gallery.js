@@ -220,7 +220,7 @@ $(function() {
 				    $rgGallery.find('div.rg-image').empty().append('<img src="' + largesrc + '"/>');
 
 					if( title )
-					    $rgGallery.find('div.rg-caption').show().children('p').empty().html('<img src="https://minotar.net/helm/' + avatar + '/150.png" width="30" Height="30"/>    ' + title);
+					    $rgGallery.find('div.rg-caption').show().children('p').empty().html('<a href="/Home/UserHistory/' + avatar + '"><img src="https://minotar.net/helm/' + avatar + '/150.png" width="30" Height="30"/></a>    ' + title);
 					
 					$loader.hide();
 					
