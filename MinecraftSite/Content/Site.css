@@ -56,7 +56,20 @@ h2 {
     font-family:minecrafter
 }
 
+.navbar-right > li{
+    margin-right:10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
 
+#Offline{
+    color:orangered;
+}
+
+#Online{
+    color:lightgreen;
+}
 
 .navbar-inverse .navbar-brand:hover, 
 .navbar-inverse .navbar-brand:focus {
@@ -132,8 +145,6 @@ input[type=button], input[type=submit], input[type=reset] {
     
     background-color:#667a99;
     color:white;
-    
-    
 } 
 
 .btn:hover {

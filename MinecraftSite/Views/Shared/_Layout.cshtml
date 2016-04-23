@@ -1,4 +1,23 @@
-﻿<!DOCTYPE html>
+﻿@{
+    bool Pingable = false;
+    string ServerStatus = "Script Error";
+    System.Net.Sockets.TcpClient MinecraftServer = new System.Net.Sockets.TcpClient();
+    try
+    {
+        MinecraftServer.Connect("waddledoo.ddns.net", 25565);
+        Pingable = true;
+    }
+    catch (Exception Excep)
+    {
+        Pingable = false;
+    }
+
+    if (Pingable) { ServerStatus = "<li id='Online'>Server Online</li>"; }
+    else { ServerStatus = "<li id='Offline'>Server Offline</li>"; }
+
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -26,6 +45,9 @@
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Connect" ? "active" : "")">@Html.ActionLink("Connect", "Connect", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Portals" ? "active" : "")">@Html.ActionLink("Portals", "Portals", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "External" ? "active" : "")">@Html.ActionLink("External", "External", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Raw(ServerStatus)
                 </ul>
             </div>
         </div>
