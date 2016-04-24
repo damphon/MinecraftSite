@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Net.Security;
-using System.Net.Sockets;
-using System.Text;
 using System.Web;
-using MinecraftSite.Helpers;
 
 namespace MinecraftSite.Helpers
 {
@@ -23,25 +18,18 @@ namespace MinecraftSite.Helpers
             if ((file != null) && (file.ContentLength > 0) && (file.ContentLength <= 8000000))
                 try
                 {
-                    //Verify that the file name is not to long for the database
-                    string filename = file.FileName;
-                    if (filename.Length > 39)
-                    {
-                        ResultText = "File Name To Long";
-                        return ResultText;
-                    }
+                    string ext = Path.GetExtension(file.FileName);
+                    string NewFilename = DateTime.Now.ToString("yyyyMMddHHmmssf") + ext;
+                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/GalleryImages"), NewFilename);
 
-                    string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/GalleryImages"), Path.GetFileName(filename));
-                
                     //Verify file is an image
-                    string ext = Path.GetExtension(filename);
                     if (FileTypeIsImage(ext))
                     {
                         if (WhiteList(UserName))
                         {
-                            if (dbhelp.NewGalleryImage(file.FileName, UserName, Description))
+                            if (dbhelp.NewGalleryImage(NewFilename, UserName, Description))
                             {
-                                MakeThumb(file);
+                                MakeThumb(file, NewFilename);
                             }
                             else //Database Connection Failed
                             {
@@ -68,7 +56,7 @@ namespace MinecraftSite.Helpers
                 }
             else //File not selected or an invalid size
             {
-                ResultText = "Invalid Image Size";
+                ResultText = "Invalid Image Size " + file.ToString();
             }
             return ResultText;
         }
@@ -80,11 +68,10 @@ namespace MinecraftSite.Helpers
             else return false;
         }
 
-        private bool MakeThumb(HttpPostedFileBase file)
+        private bool MakeThumb(HttpPostedFileBase file, string filename)
         {
             try
             {
-                var filename = Path.GetFileName(file.FileName);
                 string path = Path.Combine(HttpContext.Current.Server.MapPath("~/Content/GalleryImages/thumbs"), filename); //Get path to save image to
                 Image sourceimage = Image.FromStream(file.InputStream);
                 int newWidth = 122;
