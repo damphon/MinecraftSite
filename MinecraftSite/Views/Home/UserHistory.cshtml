@@ -46,13 +46,22 @@
 
 <!--Page Start-->
 <div class="well">
-    <h2>@CurrentUser Comment History</h2>
-    <img src="https://minotar.net/body/@CurrentUser/150.png" />
-
-    <ul class="commentSection" style="list-style-type:none">
-        @Html.Raw(commentHelper.CommentHistory(CurrentUser))
-    </ul>
-
+    <center>
+        <h1> @CurrentUser</h1>
+        <h2>Comment History</h2>
+    </center>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="https://minotar.net/body/@CurrentUser/150.png" />
+            </div>
+            <div class="col-md-10">
+                <ul class="commentSection" style="list-style-type:none">
+                    @Html.Raw(commentHelper.CommentHistory(CurrentUser))
+                </ul>
+            </div>
+        </div>
+    </div>
     <!--User image gallery-->
 
     <div class="content" align="center">

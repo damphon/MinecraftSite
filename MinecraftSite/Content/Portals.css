@@ -1,5 +1,4 @@
-﻿body {
-}
+﻿
 
 h3 {
     font-family:minecrafteralt;
@@ -13,17 +12,4 @@ h3 a {
     color:black;
 }
 
-.btn {
-    padding: 14px 24px;
-    border: 0 none;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: #b6ff00
-}
- 
 
-.btn:hover {
-    background: #b6ff00
-}
- 
