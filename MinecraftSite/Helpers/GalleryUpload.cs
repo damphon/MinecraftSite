@@ -10,7 +10,7 @@ namespace MinecraftSite.Helpers
 {
     public class Gallery
     {
-        public string ResultText = "Image has been uploaded";
+        public string ResultText = "Good";
         MCDB dbhelp = new MCDB();
 
         public string ImageUpload(HttpPostedFileBase file, string UserName, string Description)
@@ -56,7 +56,7 @@ namespace MinecraftSite.Helpers
                 }
             else //File not selected or an invalid size
             {
-                ResultText = "Invalid Image Size " + file.ToString();
+                ResultText = "Invalid Image Size ";
             }
             return ResultText;
         }
