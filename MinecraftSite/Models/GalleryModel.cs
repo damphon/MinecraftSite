@@ -16,7 +16,27 @@ namespace MinecraftSite.Models
         public static List<GalleryModel> GalleryHTML()
         {
             MCDB dbhelp = new MCDB();
-            return dbhelp.GetGalleryImage();
+            List<GalleryModel> ShuffledList = dbhelp.GetGalleryImage();
+            ShuffledList.Shuffle();
+            return ShuffledList;
+        }
+    }
+
+    public static class ListHelper
+    {
+        private static Random rng = new Random();
+
+        public static void Shuffle<T>(this System.Collections.Generic.IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
         }
     }
 }

@@ -65,6 +65,7 @@ namespace MinecraftSite.Helpers
             }
             return ListOfStrings;
         }
+
         /////////////////////////////////////////////////////////////DB querys for Comments go here////////////////////////////////////////////////////////////////////
         public bool NewComment(string page, string username, string comment)
         {

@@ -24,7 +24,9 @@ namespace MinecraftSite.Controllers
             string UserName = Request.Form["UserName"];
             string Description = Request.Form["Description"];
             ViewBag.Message = galleryHelper.ImageUpload(file, UserName, Description);
-            return View();
+
+            if (ViewBag.Message == "Good") { return Redirect("Home"); }
+            else { return View(); }
         }
 
         public ActionResult Map()
