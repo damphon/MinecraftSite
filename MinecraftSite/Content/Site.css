@@ -47,7 +47,7 @@ textarea {
 
 h1 {
     font-family: minecrafteralt;
-    font-size:5em;
+    font-size:72px;
     text-shadow:2px 2px #000000;
     color:darkgray
 }
@@ -185,3 +185,4 @@ input[type=button], input[type=submit], input[type=reset] {
 .commentUser {
     padding-left:7px;
 }
+
