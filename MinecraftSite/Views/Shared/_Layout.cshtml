@@ -2,15 +2,8 @@
     bool Pingable = false;
     string ServerStatus = "Script Error";
     System.Net.Sockets.TcpClient MinecraftServer = new System.Net.Sockets.TcpClient();
-    try
-    {
-        MinecraftServer.Connect("waddledoo.ddns.net", 25565);
-        Pingable = true;
-    }
-    catch (Exception Excep)
-    {
-        Pingable = false;
-    }
+    if (!MinecraftServer.ConnectAsync("waddledoo.ddns.net", 25565).Wait(1000)) {Pingable = false; }
+    else { Pingable = true;}
 
     if (Pingable) { ServerStatus = "<li id='Online'>Server Online</li>"; }
     else { ServerStatus = "<li id='Offline'>Server Offline</li>"; }
