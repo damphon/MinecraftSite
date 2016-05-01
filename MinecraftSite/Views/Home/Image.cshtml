@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Image";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string ImageURL = Request.Url.ToString();
+    string CurrentImage = Path.GetFileName(ImageURL);
+    string Description = "This image does not exist";
+    string Username = "Notch";
+    string Date = "10/3/1942";
+    string Image = "Temp";
+
+
+    foreach(var g in ViewBag.FullGallery)
+    {
+        string Query = g.FileNameQuery.Substring(0, g.FileNameQuery.Length - 4);
+        if (Query == CurrentImage)
+        {
+            Description = g.DescriptionQuery;
+            Username = g.UserNameQuery;
+            Date = g.CommentDateQuery;
+            Image = g.FileNameQuery;
+            break;
+        }
+    }
+
+    ViewBag.Title = Description;
+}
+<div class="well">
+    <center>
+        <img src="~/Content/GalleryImages/@Image" width="900" />
+        <h2><a href="/Home/UserHistory/@Username"><img src="https://minotar.net/helm/@Username/150.png" width="30" Height="30" /></a>@Username</h2>
+        <h4>@Description  Uploaded @Date</h4>
+    </center>
+</div>

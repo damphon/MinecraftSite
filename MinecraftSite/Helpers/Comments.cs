@@ -85,8 +85,8 @@ namespace MinecraftSite.Helpers
                 StringBuilder sb = new StringBuilder(SortedString);
                 sb.Append("<li class='comment'><div class='commentHeader'><cite><img src = 'https://minotar.net/helm/");
                 sb.Append(comment.UserNameQuery);
-                sb.Append("/150.png' width='30' Height='30'/><span class= 'commentUser'><a href='/Home/UserHistory/");
-                sb.Append(comment.UserNameQuery);
+                sb.Append("/150.png' width='30' Height='30'/><span class= 'commentUser'><a href='");
+                sb.Append(comment.PageQuery);
                 sb.Append("'>");
                 sb.Append(comment.UserNameQuery);
                 sb.Append("</a></span><span class='commentTime'>");

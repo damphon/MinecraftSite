@@ -187,14 +187,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\GalleryCSS\elastislide.css" />
-    <Content Include="Content\GalleryCSS\style.css" />
-    <Content Include="Content\GalleryImages\ajax-loader.gif" />
-    <Content Include="Content\GalleryImages\black.png" />
-    <Content Include="Content\GalleryImages\nav.png" />
-    <Content Include="Content\GalleryImages\nav_thumbs.png" />
-    <Content Include="Content\GalleryImages\pattern.png" />
-    <Content Include="Content\GalleryImages\views.png" />
+    <Content Include="Content\GalleryCSS\bootstrap-image-gallery.css" />
+    <Content Include="Content\GalleryCSS\bootstrap-image-gallery.min.css" />
+    <Content Include="Content\GalleryImages\loading.gif" />
     <Content Include="Content\Images\brewing wiki.jpg" />
     <Content Include="Content\Images\connect1.jpg" />
     <Content Include="Content\Images\connecteditprof.jpg" />
@@ -213,12 +208,12 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\Minecrafter.ttf" />
     <Content Include="fonts\Minecrafteralt.ttf" />
+    <Content Include="Content\GalleryCSS\bootstrap-image-gallery.min.css.map" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <Content Include="Scripts\GalleryScripts\bootstrap-image-gallery.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\GalleryScripts\gallery.js" />
-    <Content Include="Scripts\GalleryScripts\jquery.easing.1.3.js" />
-    <Content Include="Scripts\GalleryScripts\jquery.elastislide.js" />
-    <Content Include="Scripts\GalleryScripts\jquery.tmpl.min.js" />
+    <Content Include="Scripts\GalleryScripts\bootstrap-image-gallery.js" />
+    <Content Include="Scripts\GalleryScripts\bootstrap-image-gallery.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -270,6 +265,8 @@
     <Content Include="Views\Home\Portals.cshtml" />
     <Content Include="Views\Shared\Comments.cshtml" />
     <Content Include="Views\Home\UserHistory.cshtml" />
+    <Content Include="Views\Home\Gallery.cshtml" />
+    <Content Include="Views\Home\Image.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
