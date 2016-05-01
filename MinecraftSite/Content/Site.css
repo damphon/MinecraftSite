@@ -186,3 +186,15 @@ input[type=button], input[type=submit], input[type=reset] {
     padding-left:7px;
 }
 
+.ImageLink:link, .ImageLink:visited {
+    background-color: rgba(242, 242, 242, .5);
+    color: black;
+    padding: 2px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.thumbnailImg{
+    margin-right: -4px;
+}

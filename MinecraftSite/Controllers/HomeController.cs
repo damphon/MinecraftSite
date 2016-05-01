@@ -13,7 +13,7 @@ namespace MinecraftSite.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.Gallery = GalleryModel.GalleryHTML();
+            ViewBag.Gallery = GalleryModel.GalleryHTML().Take(4).ToList();
             return View();
         }
 
@@ -27,6 +27,12 @@ namespace MinecraftSite.Controllers
 
             if (ViewBag.Message == "Good") { return Redirect("Home"); }
             else { return View(); }
+        }
+
+        public ActionResult Gallery()
+        {
+            ViewBag.FullGallery = GalleryModel.GalleryHTML();
+            return View();
         }
 
         public ActionResult Map()
@@ -65,7 +71,13 @@ namespace MinecraftSite.Controllers
 
         public ActionResult UserHistory()
         {
-            ViewBag.Gallery = GalleryModel.GalleryHTML();
+            ViewBag.FullGallery = GalleryModel.GalleryHTML();
+            return View();
+        }
+
+        public ActionResult Image()
+        {
+            ViewBag.FullGallery = GalleryModel.GalleryHTML();
             return View();
         }
     }
