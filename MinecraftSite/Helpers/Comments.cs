@@ -78,7 +78,7 @@ namespace MinecraftSite.Helpers
                 }
             }
 
-            SortedList = TempList.OrderBy(o => o.CommentDateQuery).ToList();
+            SortedList = TempList.OrderByDescending(o => o.CommentDateQuery).Take(10).ToList();
 
             foreach (var comment in SortedList)
             {
