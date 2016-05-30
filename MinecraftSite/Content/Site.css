@@ -49,11 +49,11 @@ h1 {
     font-family: minecrafteralt;
     font-size:72px;
     text-shadow:2px 2px #000000;
-    color:darkgray
+    color:darkgray;
 }
 
 h2 {
-    font-family:minecrafter
+    font-family:minecrafter;
 }
 
 .navbar-right > li{
@@ -75,13 +75,6 @@ h2 {
 .navbar-inverse .navbar-brand:focus {
   background-color: transparent;
   color: #999999;
-
-}
-
-iframe {
-    width:100%;
-    height:100%;
-    border:none;
 }
 
 figure {
@@ -187,14 +180,33 @@ input[type=button], input[type=submit], input[type=reset] {
 }
 
 .ImageLink:link, .ImageLink:visited {
-    background-color: rgba(242, 242, 242, .5);
-    color: black;
-    padding: 2px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    font-size:1.5em;
+    display: inline-block;   
+    text-transform:uppercase; 
+    text-decoration:none;
+}
+
+.carousel-caption {
+    position: relative;
+    left: auto;
+    right: auto;    
+}
+
+div.carousel-caption a:link, div.carousel-caption a:visited{
+    color:#808080;
+    text-decoration:none;
 }
 
 .thumbnailImg{
     margin-right: -4px;
+}
+
+h3.title{
+    text-transform:uppercase;
+    font-size:.8em;
+}
+
+h2 a:link, h2 a:visited{
+    text-decoration:none;
+    color:darkgray;
 }

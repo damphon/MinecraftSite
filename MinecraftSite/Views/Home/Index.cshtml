@@ -9,14 +9,7 @@
         <h1>Pazuzu Minecraft</h1>
         </div>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-            </ol>
-
+           
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 @if (ViewBag.Gallery != null)
@@ -28,28 +21,28 @@
                     <div class="item active">
                         <img src="~/Content/GalleryImages/@ActiveItem.FileNameQuery" alt="Image">
                         <div class="carousel-caption">
-                            <h2><a href="/Home/UserHistory/@ActiveItem.UserNameQuery"><img src="https://minotar.net/helm/@ActiveItem.UserNameQuery/150.png" width="30" Height="30" /></a>  @ActiveItem.UserNameQuery</h2>
+                            <h2><a href="~/Home/UserHistory/@ActiveItem.UserNameQuery"><img src="https://minotar.net/helm/@ActiveItem.UserNameQuery/150.png" width="30" Height="30" />  @ActiveItem.UserNameQuery</a></h2>
                             <a href="/Home/Image/@ActiveItem.FileNameQuery.Substring(0, ActiveItem.FileNameQuery.Length - 4)" class="ImageLink">@ActiveItem.DescriptionQuery</a>
                         </div>
                     </div>
                     <div class="item">
                         <img src="~/Content/GalleryImages/@Item1.FileNameQuery" alt="Image">
                         <div class="carousel-caption">
-                            <h2><a href="/Home/UserHistory/@Item1.UserNameQuery"><img src="https://minotar.net/helm/@Item1.UserNameQuery/150.png" width="30" Height="30" /></a>  @Item1.UserNameQuery</h2>
+                            <h2><a href="~/Home/UserHistory/@Item1.UserNameQuery"><img src="https://minotar.net/helm/@Item1.UserNameQuery/150.png" width="30" Height="30" /> @Item1.UserNameQuery</a></h2>
                             <a href="/Home/Image/@Item1.FileNameQuery.Substring(0, Item1.FileNameQuery.Length - 4)" class="ImageLink">@Item1.DescriptionQuery</a>
                         </div>
                     </div>
                     <div class="item">
                         <img src="~/Content/GalleryImages/@Item2.FileNameQuery" alt="Image">
                         <div class="carousel-caption">
-                            <h2><a href="/Home/UserHistory/@Item2.UserNameQuery"><img src="https://minotar.net/helm/@Item2.UserNameQuery/150.png" width="30" Height="30" /></a>  @Item2.UserNameQuery</h2>
+                            <h2><a href="~/Home/UserHistory/@Item2.UserNameQuery"><img src="https://minotar.net/helm/@Item2.UserNameQuery/150.png" width="30" Height="30" />  @Item2.UserNameQuery</a></h2>
                             <a href="/Home/Image/@Item2.FileNameQuery.Substring(0, Item2.FileNameQuery.Length - 4)" class="ImageLink">@Item2.DescriptionQuery</a>
                         </div>
                     </div>
                     <div class="item">
                         <img src="~/Content/GalleryImages/@Item3.FileNameQuery" alt="Image">
                         <div class="carousel-caption">
-                            <h2><a href="/Home/UserHistory/@Item3.UserNameQuery"><img src="https://minotar.net/helm/@Item3.UserNameQuery/150.png" width="30" Height="30" /></a>  @Item3.UserNameQuery</h2>
+                            <h2><a href="~/Home/UserHistory/@Item3.UserNameQuery"><img src="https://minotar.net/helm/@Item3.UserNameQuery/150.png" width="30" Height="30" /> @Item3.UserNameQuery</a></h2>
                             <a href="/Home/Image/@Item3.FileNameQuery.Substring(0, Item3.FileNameQuery.Length - 4)" class="ImageLink">@Item3.DescriptionQuery</a>
                         </div>
                     </div>   
@@ -66,8 +59,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-    </div><!-- content -->
-    <br /><br />    
+    </div><!-- content -->  
 <!--Modal Buttonn-->
 <div class="wrapper">
     <button type = "button" class="btn btn-lg" data-toggle="modal" data-target="#myModal">Upload Image</button>
@@ -117,9 +109,7 @@
             
        </div> <!--Modal Content-->
     </div> <!--Modal Dialog-->
-</div>
-    <br />
-    <br />       
+</div>      
     @ViewBag.Message<!--Form message-->
 </div><!--End Well-->
        
