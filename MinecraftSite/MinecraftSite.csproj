@@ -211,6 +211,7 @@
     <Content Include="fonts\Minecrafter.ttf" />
     <Content Include="fonts\Minecrafteralt.ttf" />
     <Content Include="Content\GalleryCSS\bootstrap-image-gallery.min.css.map" />
+    <None Include="Properties\PublishProfiles\Sams Publish.pubxml" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <Content Include="Scripts\GalleryScripts\bootstrap-image-gallery.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
