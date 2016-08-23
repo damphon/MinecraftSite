@@ -191,6 +191,7 @@
     <Content Include="Content\GalleryCSS\bootstrap-image-gallery.min.css" />
     <Content Include="Content\GalleryImages\loading.gif" />
     <Content Include="Content\Images\brewing wiki.jpg" />
+    <Content Include="Content\Images\connect.png" />
     <Content Include="Content\Images\connect1.jpg" />
     <Content Include="Content\Images\connecteditprof.jpg" />
     <Content Include="Content\Images\connectserv.jpg" />
@@ -199,6 +200,7 @@
     <Content Include="Content\Images\planetminecraft %281%29.jpg" />
     <Content Include="Content\Images\reddit.jpg" />
     <Content Include="Content\Images\snowtexture.jpg" />
+    <Content Include="Content\Images\version.png" />
     <Content Include="Content\Portals.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
