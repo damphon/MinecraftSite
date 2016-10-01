@@ -55,6 +55,11 @@ namespace MinecraftSite.Controllers
             return View();
         }
 
+        public ActionResult Server()
+        {
+            return View();
+        }
+
         [HttpGet]
         public PartialViewResult Comments()
         {
