@@ -36,6 +36,7 @@
                 <ul class="nav navbar-nav">
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Gallery" ? "active" : "")">@Html.ActionLink("Gallery", "Gallery", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Map" ? "active" : "")">@Html.ActionLink("Map", "Map", "Home")</li>
+                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Server" ? "active" : "")">@Html.ActionLink("Server", "Server", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Connect" ? "active" : "")">@Html.ActionLink("Connect", "Connect", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Portals" ? "active" : "")">@Html.ActionLink("Portals", "Portals", "Home")</li>
                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "External" ? "active" : "")">@Html.ActionLink("External", "External", "Home")</li>
